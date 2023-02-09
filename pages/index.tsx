@@ -36,9 +36,9 @@ export default function Home() {
           <div className="home-page__hero">
             <h1 className="home-page__hero__title">Search Github Users</h1>
             <h2 className="home-page__hero__sub">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
+              {`Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s
+              ever since the 1500s`}
             </h2>
             <div className="home-page__hero__search">
               <form onSubmit={handleSearch}>

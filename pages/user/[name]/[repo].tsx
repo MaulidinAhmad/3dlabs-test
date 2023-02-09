@@ -139,7 +139,9 @@ const RepoPage: NextPage = () => {
               <select onChange={handleChangeBranch} name="" id="">
                 <option disabled>Branch</option>
                 {branchs?.map((branch, index) => (
-                  <option value={branch.name}>{branch.name}</option>
+                  <option key={index} value={branch.name}>
+                    {branch.name}
+                  </option>
                 ))}
               </select>
               {/* <div>Branch</div> */}
@@ -161,7 +163,7 @@ const RepoPage: NextPage = () => {
               </p>
             </div>
             {tree?.tree.map((item, index) => (
-              <div className="repo-page__content__tree__item">
+              <div key={index} className="repo-page__content__tree__item">
                 <i>
                   {item.type === "blob" ? (
                     <FontAwesomeIcon size="1x" icon={faFile} />

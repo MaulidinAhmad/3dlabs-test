@@ -5,7 +5,7 @@ const SearchList: React.FC<{ users?: IGithubUser[] }> = ({ users }) => {
   return (
     <div className="search-list">
       {users?.map((user, index) => (
-        <div className="search-list__item">
+        <div key={index} className="search-list__item">
           <SearchCard data={user} />
         </div>
       ))}
