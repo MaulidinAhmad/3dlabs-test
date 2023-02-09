@@ -1,0 +1,23 @@
+@use "../utils/breakpoints" as *;
+@use "../utils/functions" as *;
+@use "../utils/variables" as *;
+
+.navbar {
+  background-color: #161b22;
+  &__container {
+    max-width: pxToRem(1440);
+    margin: auto;
+    padding: pxToRem(18) pxToRem(20);
+    @include breakpoints-max("medium") {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  &-logo {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: pxToRem(32);
+    cursor: pointer;
+    text-decoration: none;
+  }
+}

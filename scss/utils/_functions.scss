@@ -1,0 +1,11 @@
+@use "sass:math";
+// @use '../utils/variables' as *;
+
+@function pxToRem($px) {
+  @return math.div($px, 16) * 1rem;
+}
+
+@function clr($base, $shade: 10) {
+  $color: map-get(map-get($colors, $base), $shade);
+  @return $color;
+}

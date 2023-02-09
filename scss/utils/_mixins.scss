@@ -1,0 +1,27 @@
+@use "../utils/functions" as *;
+// @use "../utils/variables" as *;
+
+@mixin clampText($line) {
+  overflow: hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+@mixin image-container($width, $height) {
+  widt: pxToRem($width);
+  height: pxToRem($height);
+  position: relative;
+}
+
+// card layout
+@mixin card-layout {
+  /* Card/Colour */
+
+  background: $card-color;
+  /* Card/Stroke */
+
+  border: pxToRem(1) solid $card-stroke;
+  border-radius: pxToRem(8);
+}

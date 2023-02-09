@@ -1,0 +1,71 @@
+@use "../utils/functions" as *;
+@use "../utils/variables" as *;
+
+.search-card {
+  padding: pxToRem(16) pxToRem(8);
+  display: flex;
+  gap: pxToRem(8);
+  &__image {
+    position: relative;
+    width: pxToRem(40);
+    height: pxToRem(40);
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+    }
+  }
+  &__right {
+    display: flex;
+    align-items: center;
+    &__name {
+      text-decoration: unset;
+      color: $text-link;
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.repository-card {
+  &__container {
+    padding: pxToRem(16);
+  }
+  &__head {
+    display: flex;
+    gap: pxToRem(10);
+    margin-bottom: pxToRem(8);
+    align-items: flex-start;
+    a {
+      color: $text-link;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: pxToRem(24);
+    }
+
+    &__visibility {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: pxToRem(16);
+      padding: pxToRem(2) pxToRem(4);
+      color: $text-muted;
+      font-size: pxToRem(14);
+      border: pxToRem(1) solid $text-muted;
+    }
+  }
+  &__description {
+    color: $text-muted;
+    font-size: pxToRem(14);
+    margin-bottom: pxToRem(12);
+  }
+  &__detail {
+    display: flex;
+    gap: pxToRem(4);
+    p {
+      color: $text-muted;
+      font-size: pxToRem(12);
+    }
+  }
+}

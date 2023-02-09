@@ -1,0 +1,31 @@
+@use "../utils/variables" as *;
+@use "../utils/breakpoints" as *;
+
+@font-face {
+  font-family: "Mona Sans";
+  src: url("/fonts/MonaSans/Mona-Sans.woff2")
+      format("woff2 supports variations"),
+    url("/fonts/MonaSans/Mona-Sans.woff2") format("woff2-variations");
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+}
+
+html {
+  font-family: "Mona Sans", "Mona Sans Fallback", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 100%;
+}
+@include breakpoints-max("large") {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
+  background-color: #0d1117;
+}
+
+p {
+  color: $text-white;
+}

@@ -1,0 +1,22 @@
+@use "../utils/functions" as *;
+@use "../utils/variables" as *;
+
+.search-list {
+  display: flex;
+  flex-direction: column;
+  &__item {
+    &:not(:last-child) {
+      border-bottom: pxToRem(1) solid $border-color;
+    }
+  }
+}
+
+.repository-list {
+  display: flex;
+  flex-direction: column;
+  &__item {
+    &:not(:last-child) {
+      border-bottom: pxToRem(1) solid $border-color;
+    }
+  }
+}

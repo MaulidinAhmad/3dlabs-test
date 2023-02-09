@@ -1,0 +1,117 @@
+@use "../utils/functions" as *;
+@use "../utils/variables" as *;
+@use "../utils/breakpoints" as *;
+
+.repo-page {
+  &__container {
+    max-width: pxToRem(1440);
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: pxToRem(20);
+    padding: 0 pxToRem(80);
+
+    @include breakpoints-max("medium") {
+      padding: 0 pxToRem(16);
+    }
+  }
+
+  &__head {
+  }
+
+  &__content {
+    &__head {
+      margin-bottom: pxToRem(16);
+    }
+    &__tree {
+      border: pxToRem(1) solid $border-color;
+      border-radius: pxToRem(8);
+      &__head {
+        padding: pxToRem(12) pxToRem(16);
+        background-color: #161b22;
+        display: flex;
+        align-items: center;
+        gap: pxToRem(16);
+        &__image {
+          position: relative;
+          width: pxToRem(40);
+          height: pxToRem(40);
+          border-radius: 50%;
+          overflow: hidden;
+        }
+      }
+      &__item {
+        display: flex;
+        gap: pxToRem(10);
+        padding: pxToRem(8);
+        &:not(:last-child) {
+          border-bottom: 1px solid $border-color;
+        }
+        i {
+          color: $text-muted;
+        }
+      }
+    }
+
+    &__readme {
+      border: pxToRem(1) solid $border-color;
+      border-radius: pxToRem(8);
+      margin-top: pxToRem(32);
+      * {
+        color: #c9d1d9;
+      }
+      &__head {
+        padding: pxToRem(24);
+        border-bottom: pxToRem(1) solid $border-color;
+      }
+      &__data {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+          Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+        padding: pxToRem(32);
+        p,
+        blockquote,
+        ul,
+        ol,
+        dl,
+        table,
+        pre,
+        details {
+          margin-top: 0;
+          margin-bottom: 16px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          margin-top: 24px;
+          margin-bottom: 16px;
+          font-weight: var(--base-text-weight-semibold, 600);
+          line-height: 1.25;
+        }
+
+        *:first-child {
+          margin-top: 0 !important;
+        }
+
+        h1 {
+          padding-bottom: 0.3em;
+          font-size: 2em;
+          border-bottom: 1px solid #21262d;
+        }
+
+        h4 {
+          font-size: 1em;
+        }
+
+        pre {
+          white-space: pre-line;
+        }
+      }
+    }
+  }
+}

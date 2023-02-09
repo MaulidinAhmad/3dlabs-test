@@ -1,0 +1,47 @@
+@use "../utils/functions" as *;
+@use "../utils/variables" as *;
+@use "../utils/breakpoints" as *;
+
+.search-page {
+  &__container {
+    max-width: pxToRem(1440);
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: pxToRem(20);
+    padding: 0 pxToRem(200);
+
+    @include breakpoints-max("medium") {
+      padding: 0 pxToRem(16);
+    }
+  }
+  &__content {
+    &__head {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: pxToRem(16);
+      border-bottom: pxToRem(1) solid $border-color;
+    }
+    &__pagination {
+      display: flex;
+      justify-content: center;
+      ul {
+        display: flex;
+        list-style: none;
+        gap: pxToRem(8);
+        li {
+          a {
+            padding: pxToRem(8) pxToRem(12);
+            border-radius: pxToRem(4);
+            color: $text-white;
+            cursor: pointer;
+          }
+          &.selected {
+            a {
+              background-color: #1f6feb;
+            }
+          }
+        }
+      }
+    }
+  }
+}

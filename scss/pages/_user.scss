@@ -1,0 +1,41 @@
+@use "../utils/functions" as *;
+@use "../utils/variables" as *;
+@use "../utils/breakpoints" as *;
+
+.user-page {
+  &__container {
+    max-width: pxToRem(1440);
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: pxToRem(20);
+    padding: 0 pxToRem(80);
+    display: flex;
+    padding-bottom: pxToRem(32);
+    gap: pxToRem(32);
+    @include breakpoints-max("medium") {
+      padding: 0 pxToRem(16);
+      flex-direction: column;
+    }
+  }
+  &__profile {
+    &__image {
+      position: relative;
+      width: pxToRem(200);
+      height: pxToRem(200);
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: pxToRem(16);
+    }
+  }
+  &__repositories {
+    width: 100%;
+    &__show-more {
+      margin-top: pxToRem(16);
+      padding-left: pxToRem(16);
+      &:hover {
+        cursor: pointer;
+        color: $text-link;
+      }
+    }
+  }
+}
