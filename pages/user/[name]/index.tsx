@@ -21,7 +21,7 @@ const UserPage: NextPage = () => {
   const [isLastPage, setisLastPage] = useState(false);
   const [currentPage, setcurrentPage] = useState(1);
 
-  const per_page = 3;
+  const per_page = 6;
 
   // useEffect(() => {
   //   const userData = getLocalStorage()?.userData;
@@ -37,7 +37,7 @@ const UserPage: NextPage = () => {
       String(name)
     );
     if (repositories && data) {
-      if (data.length < 3) {
+      if (data.length < 6) {
         setisLastPage(true);
       }
       setrepositories([...repositories, ...data]);
@@ -47,7 +47,7 @@ const UserPage: NextPage = () => {
   const handleGetInit = async (name: string) => {
     try {
       const data = await handleGetUserRepostitory({ page: 1 }, name);
-      if (data && data.length < 3) {
+      if (data && data.length < 6) {
         setisLastPage(true);
       }
       setrepositories(data);
