@@ -7,6 +7,7 @@ import {
 import { context } from "@/store";
 import { getLocalStorage } from "@/store/local_storage";
 import { NextPage } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -76,36 +77,44 @@ const UserPage: NextPage = () => {
   }, [name]);
 
   return (
-    <div className="user-page">
-      <div className="user-page__container">
-        <div className="user-page__profile">
-          <div className="user-page__profile__image">
-            <Image
-              fill
-              src={ctx.state.userData?.avatar_url || ""}
-              alt="profile avatar"
-            />
-          </div>
-          <p className="user-page__profile__name">
-            {ctx.state.userData?.login}
-          </p>
-        </div>
-        <div className="user-page__repositories">
-          <div className="user-page__repositories__head"></div>
-          <div className="user-page__repositories__content">
-            <RepositoryList repositories={repositories} />
-          </div>
-          {!isLastPage && (
-            <p
-              onClick={handleNextPage}
-              className="user-page__repositories__show-more"
-            >
-              Show More
+    <>
+      <Head>
+        <title>Github Kali</title>
+        <meta name="description" content="Github Kali is clone from github" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className="user-page">
+        <div className="user-page__container">
+          <div className="user-page__profile">
+            <div className="user-page__profile__image">
+              <Image
+                fill
+                src={ctx.state.userData?.avatar_url || ""}
+                alt="profile avatar"
+              />
+            </div>
+            <p className="user-page__profile__name">
+              {ctx.state.userData?.login}
             </p>
-          )}
+          </div>
+          <div className="user-page__repositories">
+            <div className="user-page__repositories__head"></div>
+            <div className="user-page__repositories__content">
+              <RepositoryList repositories={repositories} />
+            </div>
+            {!isLastPage && (
+              <p
+                onClick={handleNextPage}
+                className="user-page__repositories__show-more"
+              >
+                Show More
+              </p>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

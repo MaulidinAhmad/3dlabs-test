@@ -18,6 +18,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFile } from "@fortawesome/free-regular-svg-icons";
 import { faFolder } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
+import Head from "next/head";
 
 const parse = require("html-react-parser");
 
@@ -130,62 +131,72 @@ const RepoPage: NextPage = () => {
   };
 
   return (
-    <div className="repo-page">
-      <div className="repo-page__container">
-        <div className="repo-page__head"></div>
-        <div className="repo-page__content">
-          <div className="repo-page__content__head">
-            <div className="repo-page__content__left">
-              <select onChange={handleChangeBranch} name="" id="">
-                <option disabled>Branch</option>
-                {branchs?.map((branch, index) => (
-                  <option key={index} value={branch.name}>
-                    {branch.name}
-                  </option>
-                ))}
-              </select>
-              {/* <div>Branch</div> */}
-            </div>
+    <>
+      <Head>
+        <title>Github Kali</title>
+        <meta name="description" content="Github Kali is clone from github" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className="repo-page">
+        <div className="repo-page__container">
+          <div className="repo-page__head"></div>
+          <div className="repo-page__content">
+            <div className="repo-page__content__head">
+              <div className="repo-page__content__left">
+                <select onChange={handleChangeBranch} name="" id="">
+                  <option disabled>Branch</option>
+                  {branchs?.map((branch, index) => (
+                    <option key={index} value={branch.name}>
+                      {branch.name}
+                    </option>
+                  ))}
+                </select>
+                {/* <div>Branch</div> */}
+              </div>
 
-            <div className="repo-page__content__right"></div>
-          </div>
-          <div className="repo-page__content__tree">
-            <div className="repo-page__content__tree__head">
-              <div className="repo-page__content__tree__head__image">
-                <Image
-                  src={ctx.state.userData?.avatar_url || ""}
-                  alt="avatar"
-                  fill
-                />
-              </div>
-              <p className="repo-page__content__tree__head__user">
-                {ctx.state.userData?.login}
-              </p>
+              <div className="repo-page__content__right"></div>
             </div>
-            {tree?.tree.map((item, index) => (
-              <div key={index} className="repo-page__content__tree__item">
-                <i>
-                  {item.type === "blob" ? (
-                    <FontAwesomeIcon size="1x" icon={faFile} />
-                  ) : (
-                    <FontAwesomeIcon icon={faFolder} />
-                  )}
-                </i>
-                <p>{item.path}</p>
+            <div className="repo-page__content__tree">
+              <div className="repo-page__content__tree__head">
+                <div className="repo-page__content__tree__head__image">
+                  <Image
+                    src={ctx.state.userData?.avatar_url || ""}
+                    alt="avatar"
+                    fill
+                  />
+                </div>
+                <p className="repo-page__content__tree__head__user">
+                  {ctx.state.userData?.login}
+                </p>
               </div>
-            ))}
-          </div>
-          {readme && (
-            <div className="repo-page__content__readme">
-              <div className="repo-page__content__readme__head">README.md</div>
-              <div className="repo-page__content__readme__data">
-                {parse(readme || "")}
-              </div>
+              {tree?.tree.map((item, index) => (
+                <div key={index} className="repo-page__content__tree__item">
+                  <i>
+                    {item.type === "blob" ? (
+                      <FontAwesomeIcon size="1x" icon={faFile} />
+                    ) : (
+                      <FontAwesomeIcon icon={faFolder} />
+                    )}
+                  </i>
+                  <p>{item.path}</p>
+                </div>
+              ))}
             </div>
-          )}
+            {readme && (
+              <div className="repo-page__content__readme">
+                <div className="repo-page__content__readme__head">
+                  README.md
+                </div>
+                <div className="repo-page__content__readme__data">
+                  {parse(readme || "")}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
